@@ -1,0 +1,17 @@
+{
+  "_note": "Общедоступные ориентиры для старта. ВСЕ значения нужно сверить с экспертом Stereotech и профилями Hybrid 530. null = не задано, агент не должен выдумывать.",
+  "PLA":  {"material_print_temperature": [200, 220], "material_bed_temperature": [55, 65],  "cool_fan_speed": 100, "dry_before_print": false,
+           "notes": "Лёгкая печать, хрупче PETG."},
+  "PETG": {"material_print_temperature": [230, 245], "material_bed_temperature": [70, 85],  "cool_fan_speed": [30, 60], "dry_before_print": true,
+           "notes": "Гигроскопичен: перед печатью сушить. Хорошая ударная вязкость."},
+  "ABS":  {"material_print_temperature": [235, 255], "material_bed_temperature": [95, 110], "cool_fan_speed": 0, "dry_before_print": false,
+           "notes": "Склонен к усадке и отрыву от стола; нужна адгезия и закрытая камера."},
+  "NYLON": {"material_print_temperature": null,      "material_bed_temperature": null,      "cool_fan_speed": null, "dry_before_print": true,
+           "notes": "Сильно гигроскопичен: обязательная сушка. Числа - по паспорту производителя."},
+  "_purposes": {
+    "load_bearing": {"wall_line_count": null, "infill_sparse_density": null, "infill_pattern": null, "top_layers": null, "bottom_layers": null,
+                     "notes": "Слои слабее вдоль оси Z: ориентировать так, чтобы нагрузка шла вдоль слоёв, а не поперёк. Числа взять у эксперта."},
+    "fast":    {"layer_height": null, "infill_sparse_density": null, "notes": "Приоритет скорости."},
+    "visual":  {"layer_height": null, "notes": "Приоритет внешнего вида."}
+  }
+}

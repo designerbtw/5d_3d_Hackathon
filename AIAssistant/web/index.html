@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI-ассистент STE Slicer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Ассистент печати</h1>
+  <span id="conn" class="conn" title="Связь со слайсером">нет связи</span>
+  <div class="spacer"></div>
+  <button id="btn-reset" class="ghost" type="button">Новый диалог</button>
+  <button id="btn-settings" class="ghost" type="button">Настройки</button>
+</header>
+<main>
+  <section class="chat">
+    <div id="log" class="log" aria-live="polite">
+      <div id="empty" class="empty">
+        <p>Опишите деталь и задачу печати, приложите STL, OBJ, 3MF или фото. Ассистент выберет режим, материал и настройки, расставит модель, нарежет её и объяснит решения.</p>
+        <div class="chips">
+          <button type="button" class="chip">Кронштейн под нагрузку, PETG, без поддержек</button>
+          <button type="button" class="chip">Перенастрой текущий проект на ABS</button>
+          <button type="button" class="chip">Подбери ориентацию модели, чтобы обойтись без поддержек</button>
+        </div>
+      </div>
+    </div>
+    <div id="files" class="files"></div>
+    <div class="composer">
+      <label class="attach" title="Приложить файл">
+        <input id="file" type="file" multiple accept=".stl,.obj,.3mf,image/png,image/jpeg" hidden>
+        <span>Файл</span>
+      </label>
+      <textarea id="text" rows="2" placeholder="Что нужно напечатать?"></textarea>
+      <button id="send" type="button">Отправить</button>
+    </div>
+  </section>
+  <aside class="side">
+    <h2>Ход работы</h2>
+    <div id="bar" class="bar" hidden><div id="barfill"></div></div>
+    <ol id="steps" class="steps"></ol>
+    <h2>Результат</h2>
+    <div id="result" class="result">Появится после нарезки.</div>
+  </aside>
+</main>
+
+<dialog id="dlg">
+  <form method="dialog" id="settings-form">
+    <h2>Подключение к LLM</h2>
+    <label>Base URL<input id="s-url" autocomplete="off"></label>
+    <label>Модель<input id="s-model" autocomplete="off"></label>
+    <label>API-ключ<input id="s-key" type="password" autocomplete="off" placeholder="не показывается; оставьте пустым, чтобы не менять"></label>
+    <label>Папка результатов<input id="s-out" autocomplete="off"></label>
+    <p id="s-msg" class="hint"></p>
+    <div class="row">
+      <button id="s-test" type="button" class="ghost">Проверить соединение</button>
+      <div class="spacer"></div>
+      <button value="cancel" class="ghost">Закрыть</button>
+      <button id="s-save" type="button">Сохранить</button>
+    </div>
+  </form>
+</dialog>
+<script src="app.js"></script>
+</body>
+</html>

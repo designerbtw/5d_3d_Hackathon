@@ -1,0 +1,16 @@
+{
+  "_note": "Белый список параметров, которые агент может менять. Ключи Cura 3.6; добавьте ключи Stereotech из определения Hybrid 530.",
+  "layer_height":              {"type": "number",  "min": 0.04, "max": 0.6,  "label": "Высота слоя, мм"},
+  "wall_line_count":           {"type": "integer", "min": 1,    "max": 20,   "label": "Число периметров"},
+  "top_layers":                {"type": "integer", "min": 0,    "max": 30,   "label": "Верхние слои"},
+  "bottom_layers":             {"type": "integer", "min": 0,    "max": 30,   "label": "Нижние слои"},
+  "infill_sparse_density":     {"type": "number",  "min": 0,    "max": 100,  "label": "Заполнение, %"},
+  "infill_pattern":            {"type": "string",  "enum": ["grid", "lines", "triangles", "cubic", "gyroid", "concentric", "zigzag"], "label": "Шаблон заполнения"},
+  "support_enable":            {"type": "boolean", "label": "Поддержки"},
+  "adhesion_type":             {"type": "string",  "enum": ["skirt", "brim", "raft", "none"], "label": "Адгезия к столу"},
+  "material_print_temperature": {"type": "number", "min": 150, "max": 400,  "label": "Температура сопла, °C"},
+  "material_bed_temperature":  {"type": "number",  "min": 0,    "max": 150,  "label": "Температура стола, °C"},
+  "cool_fan_speed":            {"type": "number",  "min": 0,    "max": 100,  "label": "Обдув, %"},
+  "speed_print":               {"type": "number",  "min": 5,    "max": 300,  "label": "Скорость печати, мм/с"},
+  "retraction_enable":         {"type": "boolean", "label": "Ретракт"}
+}
